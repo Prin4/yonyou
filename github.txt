@@ -25,12 +25,18 @@
 
 13. git rm file 版本库中删除文件
 
-连接远程仓库：
+连接远程仓库：（先创建本地库，然后连接远程库这种方式并不推荐，但是也可以做。）
 1. 注册github账号
 2. 创建 ssh-keygen -t rsa -C "youremail@example.com"
 3. 登录github，在account settings 里添加ssh key
-4. 在github 里新建一个repository
+4. 在github 里新建一个repository（一定要是空的）
 5. git remote add origin git@github.com:michaelliao/learngit.git
-6. 将本地的内容推送到github。 git push -u origin master
+6. 将本地的内容推送到github。 git push -u origin master(第一次推送，需要加参数 -u，将本地master和远程的master关联起来)
+7. 后续再进行推送的时候就可以不加参数了。 git push origin master
+
+这种方式较好：
+1. 在github上创建一个repository。
+2. git clone git@github.com:michaelliao/gitskills.git。 将远程库clone到本地。
+3. git push origin master 
 
 
