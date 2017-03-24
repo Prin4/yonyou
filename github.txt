@@ -1,0 +1,36 @@
+1. git init 初始化git仓库
+2. git add  添加文件到暂存区     git add readme.txt
+3. git commit 提交文件到分支	 git commit -m "wrote a readme file"
+4. git status 查看仓库状态
+5. git diff  查看修改          git dff readme.txt
+6. git log  显示提交日志       git log --pretty=oneline 单行显示日志
+
+在Git中，用HEAD表示当前版本，，上一个版本就是HEAD^，上上一个版本就是HEAD^^，当然往上100个版本写100个^比较容易数不过来，所以写成HEAD~100。
+
+7. git reset --hard HEAD^  回退到上一个版本
+8. git reset --hard 34235243524(commit id，不用写完整的版本号)  回退到某次提交
+9. cat readme.txt 查看readme.txt 的内容
+10.git reflog  每条命令的执行记录
+
+工作区：版本库   版本库：暂存区（stage），分支（branch）  git自动创建的第一个分支为master。指向master的指针叫head。
+
+11. git checkout -- filename 让这个文件回到最近一次git commit或git add后的状态。换句话说就是撤销在工作区的修改。再换句话说就是用版本库里的文件替换工作区的文件
+12. git reset HEAD file  让文件恢复到git add 之前的状态。
+
+场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file。
+
+场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD file，就回到了场景1，第二步按场景1操作。
+
+场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库。
+
+13. git rm file 版本库中删除文件
+
+连接远程仓库：
+1. 注册github账号
+2. 创建 ssh-keygen -t rsa -C "youremail@example.com"
+3. 登录github，在account settings 里添加ssh key
+4. 在github 里新建一个repository
+5. git remote add origin git@github.com:michaelliao/learngit.git
+6. 将本地的内容推送到github。 git push -u origin master
+
+
